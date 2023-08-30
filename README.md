@@ -29,4 +29,14 @@
 
    This code is responsible for creating a client that calls the "add_two_ints" service with two integer arguments and prints the sum received from the service response.
 
-2.
+2.college_info.h
+
+This code defines a struct called CollegeInfo in the header file college_info.h.
+
+The CollegeInfo struct has three members:
+
+    collegeName is a string that represents the name of the college.
+    course is a string that represents the course or major in which the student is enrolled.
+    year is an integer that represents the year or grade level of the student.
+
+The #ifndef, #define, and #endif are known as include guards. They prevent the contents of the header file from being included more than once in the same translation unit, which helps to avoid duplicate definitions and potential compilation errors.This will be called in the publisher2_node.cpp and the subscriber2_node.cpp.
