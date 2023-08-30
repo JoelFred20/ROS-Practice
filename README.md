@@ -40,3 +40,33 @@ The CollegeInfo struct has three members:
     year is an integer that represents the year or grade level of the student.
 
 The #ifndef, #define, and #endif are known as include guards. They prevent the contents of the header file from being included more than once in the same translation unit, which helps to avoid duplicate definitions and potential compilation errors.This will be called in the publisher2_node.cpp and the subscriber2_node.cpp.
+
+3.publisher22_node.cpp
+
+   This code is a ROS node that publishes information about a college in the form of a std_msgs::String message.
+
+Explanation of the code:
+
+    1.#include <ros/ros.h>: This line includes the necessary ROS header file for using ROS functions.
+    2.#include <std_msgs/String.h>: This line includes the std_msgs/String header file for using the std_msgs::String message type.
+    3.#include "college_info.h": This line includes a user-defined header file called "college_info.h", which contains a struct definition for storing college information.
+    4.int main(int argc, char** argv): The main function of the program.
+    5.ros::init(argc, argv, "college_pub"): Initializes the ROS node with the name "college_pub".
+    6.ros::NodeHandle nh: Creates a NodeHandle object for interacting with the ROS system.
+    7.ros::Publisher pub = nh.advertise<std_msgs::String>("college_info", 10): Creates a publisher object that publishes messages of type std_msgs::String on the "college_info" topic with a queue size of 10.
+    8.ros::Rate loop_rate(1): Specifies the frequency at which the loop in the code should run. In this case, it runs at a frequency of 1 Hz.
+    9.CollegeInfo college: Creates an instance of the CollegeInfo struct.
+    10.college.collegeName = "VIT University Chennai": Assigns the value "VIT University Chennai" to the collegeName member of the CollegeInfo struct.
+    11.college.course = "Computer Science": Assigns the value "Computer Science" to the course member of the CollegeInfo struct.
+    12.college.year = 2021: Assigns the value 2021 to the year member of the CollegeInfo struct.
+    13.while (ros::ok()): Enters a loop that runs as long as the ROS system is running.
+    14.std_msgs::String msg: Creates an instance of the std_msgs::String message.
+    15.std::stringstream ss: Creates a stringstream object for concatenating the college information.
+    16.ss << "College Name: " << college.collegeName << " | ": Appends the college name to the stringstream.
+    17.ss << "Course: " << college.course << " | ": Appends the course name to the stringstream.
+    18.ss << "Year: " << college.year: Appends the year to the stringstream.
+    19.msg.data = ss.str(): Copies the contents of the stringstream to the data member of the std_msgs::String message.
+    20.pub.publish(msg): Publishes the std_msgs::String message on the "college_info" topic.
+    21.ros::spinOnce(): Allows ROS to process any incoming messages.
+    22.loop_rate.sleep(): Causes the program to sleep for a duration that ensures a loop rate of 1 Hz.
+    23.return 0: Indicates successful program execution.
