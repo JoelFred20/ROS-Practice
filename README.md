@@ -65,3 +65,15 @@ Explanation of the code:
 4.publisher_node.cpp
 
 Explanation present in the code in the for of comments.
+
+5.server_node.cpp
+
+This code is an example of a ROS service server node that adds two integers.
+
+  The code starts by including the necessary ROS headers: "ros/ros.h" for ROS functionality and "beginner_tutorials/AddTwoInts.h" for the custom service message definition.
+  Then, there is a function called "add" that is used as the callback function for the service. This function takes a request object of type       "beginner_tutorials::AddTwoInts::Request" and a response object of type "beginner_tutorials::AddTwoInts::Response". Inside this function, it adds the values of "req.a" and "req.b" and stores the result in "res.sum". It also prints out the values of "req.a" and "req.b" using ROS_INFO, and the value of "res.sum" as the response.
+  The main function initializes the ROS node with the provided command-line arguments, sets up a NodeHandle, and then creates a ServiceServer object called "service" using the advertiseService method. The advertiseService method takes two arguments: the name of the service ("add_two_ints") and the callback function ("add").
+  After setting up the service, it prints out a message indicating that the server is ready to add two integers. Finally, the program enters a loop using ros::spin() to process incoming service requests.
+  Overall, this code sets up a ROS service server node that listens for requests to add two integers and provides the result as the response.
+
+6.subscriber2_node.cpp
