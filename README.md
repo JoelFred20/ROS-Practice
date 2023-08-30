@@ -77,3 +77,10 @@ This code is an example of a ROS service server node that adds two integers.
     Overall, this code sets up a ROS service server node that listens for requests to add two integers and provides the result as the response.
 
 6.subscriber2_node.cpp
+
+This code is a simple ROS (Robot Operating System) node that subscribes to a topic called "college_info" and listens for messages of type std_msgs/String.
+
+    In the main function, it first initializes the ROS node with ros::init, giving it a name "college_sub". It then creates a NodeHandle object nh, which is used to interact with the ROS system.
+    Next, it creates a Subscriber object sub by calling nh.subscribe, passing in the topic name "college_info", the queue size 10, and the callback function collegeInfoCallback. The callback function is executed whenever a new message is received on the subscribed topic.
+    Finally, ros::spin() is called, which enters into a loop and continuously processes any incoming messages. The node will keep running until it receives a shutdown signal from the ROS system or is terminated by some external factor.
+    The collegeInfoCallback function is defined outside of the main function. It takes a single argument of type std_msgs::String::ConstPtr, which is a smart pointer to the received message. Inside the callback function, it prints out the received college information using ROS_INFO macro, which internally publishes the message to the console.
