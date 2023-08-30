@@ -1,6 +1,7 @@
 # ROS-Practice
 
-1.Client implementation for the "add_two_ints" ROS service.
+1.Client_node.cpp
+ Client implementation for the "add_two_ints" ROS service.
   
 
     1.First, the necessary header files are included - "ros/ros.h" for the ROS system and "beginner_tutorials/AddTwoInts.h" for the service message definition.
